@@ -122,3 +122,26 @@ turtlePath.forEach(element => console.log(element[0]+element[1]));
 // for the last one using forEach()
 // not sure if each case is referred to all the steps in every moment combined
 // or total of each movement. 
+
+// .Reduce() practice
+// decode criteria 
+// if words are three characters long, add a space to accumulator
+// Otherwise, capitalize the LAST character of the word and add it
+//  to your accumulator
+
+// turn the decode message into list of words with split
+let decodeWordList = 'noggin oreo the moon time tele steed his tent apollo her lives though shoo tofu budapest'.split(" ");
+
+// acc is accumulator,word is from words in the list
+console.log(decodeWordList.reduce((acc,word)=>
+// ternary operator: if word length===3 add a space 
+// to acc else capitalize the last char then add to acc
+// word.slice(0,word.length-1) every char in a word 
+// except the last char concat the last char in uppercase
+	(word.length===3) ? acc+=" ":acc+=word.slice(0,word.length-1)+word[word.length-1].toUpperCase()
+))
+
+//should return 'noggiNoreO mooNtimEtelEsteeD tenTapollO liveSthougHshoOtofUbudapesT'
+
+
+
