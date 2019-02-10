@@ -3,6 +3,9 @@ function createGreeting(name,age){
     if (!name || !age){
         throw new Error("Arguments not valid")
     }
+    else if((typeof name)!=='string' || (typeof age)!=='number'){
+        throw new Error("Arguments type is not valid, string for name, number for age");
+    }
     const yearOfBirth = getYearOfBirth(age);
     return `My name is ${name} and I am ${age} years old\n 
 I was born in ${yearOfBirth}`;
@@ -19,7 +22,7 @@ function getYearOfBirth(age){
 // if a negative age is entered, error will be thrown. 
 // use try and catch blocks. 
 try {
-    const greeting1 = createGreeting("LJZ",100);
+    const greeting1 = createGreeting("LJZ",20);
     console.log(greeting1);
 } catch(e){
         console.log("something went wrong");
