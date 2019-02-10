@@ -146,6 +146,8 @@ function rockPaperScissor(num){
 
 
 
+
+
 console.log(rockPaperScissor(1))
 
 console.log(rockPaperScissor(2)) // => tbd
