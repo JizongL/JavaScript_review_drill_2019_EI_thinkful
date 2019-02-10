@@ -5,9 +5,22 @@ I was born in ${yearOfBirth}`;
 }
 
 function getYearOfBirth(age){
+    // throw an error if age is negative. 
+    if(age<0){
+        throw new Error("Age can not be negative");
+    }
     return 2019-age;
-
 }
-const greeting1 = createGreeting("LJZ",100);
-console.log(greeting1);
+
+// if a negative age is entered, error will be thrown. 
+// use try and catch blocks. 
+try {
+    const greeting1 = createGreeting("LJZ",100);
+    console.log(greeting1);
+} catch(e){
+        console.log("something went wrong");
+        console.dir(e);
+}
+
+
 
