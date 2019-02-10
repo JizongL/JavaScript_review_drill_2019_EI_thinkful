@@ -1,4 +1,8 @@
 function createGreeting(name,age){
+    // throw an error if either or both arguments are missing
+    if (!name || !age){
+        throw new Error("Arguments not valid")
+    }
     const yearOfBirth = getYearOfBirth(age);
     return `My name is ${name} and I am ${age} years old\n 
 I was born in ${yearOfBirth}`;
