@@ -101,5 +101,24 @@ rocksWarning('Main St and Pacific Ave');
 snowWarning('Center City, Pa')
 
 
+// forEach, filter and map
+
+let turtlePath = [[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]];
+
+// remove backward steps or to the right.
+const noBackOrRight = turtlePath.filter(element =>element[0]>=0 && element[1]>=0);
+
+// count how may steps the turtle made during each 
+// movement
+const totalSteps = turtlePath.map(element => element[0]+element[1]);
 
 
+
+// log out how many steps the turtle took in each case.
+turtlePath.forEach(element => console.log(element[0]+element[1]));
+
+
+// Questions
+// for the last one using forEach()
+// not sure if each case is referred to all the steps in every moment combined
+// or total of each movement. 
