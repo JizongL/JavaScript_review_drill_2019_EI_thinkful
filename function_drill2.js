@@ -89,3 +89,36 @@ decoder(message);
 // console.log(decode('bells'))
 
 
+// How many days in a month
+
+// daysInMonth() function, to find out how many days in a specific month
+// it takes two parameters month and optional leapYear
+function daysInMonth(month,leapYear='false'){
+    // use switch to sive through the months, and if month is not valid
+    // print default message to prompt "invalid month", if leapYear and February
+    // return 29 days, else return 28 days. 
+    switch(month){
+		case 'January':
+		case 'February':
+			if (leapYear) return `${month} has 29 days`
+			else return `${month} has 28 days`
+		case 'March':
+		case 'May':
+		case 'July':
+		case 'August':
+		case 'October':
+		case 'December':
+			return `${month} has 31 days`;
+			break;
+		case 'April':
+		case 'June':
+		case 'September':
+		case 'November':
+			return `${month} has 30 days`;
+			break;
+		default:
+			return 'Must provide a valid month.'	
+	}
+}
+
+daysInMonth("February",false)
