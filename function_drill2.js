@@ -121,4 +121,32 @@ function daysInMonth(month,leapYear='false'){
 	}
 }
 
-daysInMonth("February",false)
+daysInMonth("February",false)//=>`February has 29 days`
+
+
+// Rock Paper Scissors
+
+function rockPaperScissor(num){
+    // if option is out of range throw an error
+    if( num < 1 || num > 3){
+		throw new Error("Option must be between 1 and 3");
+    }
+    // create computer random option 
+    let computer = Math.floor(Math.random() * 3)+1;
+	console.log('computer: '+computer)
+    // If options are the same, it's a tie
+    if (num === computer) return "It's a tie";
+    // If option is even return normal, if it's odd, use mod operater
+    // 3%3=0, so scissors is beated by rock. 
+    if(num%2 === 0) return num > computer ? "You win!":"You lost:("
+    else return num % 3 > computer % 3?"You win!":"You lost:(";
+	
+}
+
+
+
+
+console.log(rockPaperScissor(1))
+
+console.log(rockPaperScissor(2)) // => tbd
+console.log(rockPaperScissor(4)) // => throw an error
