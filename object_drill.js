@@ -63,3 +63,32 @@ for (object of objectArray){
     console.log(`Name: ${object.name}\nJob title: ${object.jobTitle}`);
 }
 
+// Properties that aren't there
+
+let hrArray = [
+    {
+        name:'John',
+        title:'Technician',
+        boss:'Tmm'
+    },
+    {
+        name:'Taylor',
+        title:'Secretary',
+        boss:'Tmm'
+    },{
+        name:'Joyce',
+        title:'Sales Manager',
+        boss:'Tmm'
+    },{
+        name:'tmm',
+        title:'Owner'
+    }
+]
+
+
+for (person of hrArray){
+    // adjust if it is the owner, then report ot nobody
+    if(person.title==='Owner')console.log(`Founder\
+	${person.name} doesn't report to anybody`) 
+	else console.log(`${person.title} ${person.name} reports to ${person.boss}.`);
+}
