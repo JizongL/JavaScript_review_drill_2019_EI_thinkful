@@ -123,3 +123,4 @@ let cipher ={
 let message = 'craft block argon meter bells brown croon droop'
 
 console.log(decode(message,cipher));
+
