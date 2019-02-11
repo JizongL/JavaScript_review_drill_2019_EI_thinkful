@@ -169,5 +169,55 @@ console.log("\nCharacters that are Hobbit\n",characters.filter
 console.log("\nCharacters that have attack value above 5\n",characters.filter
 (character=>character.attack>5))
 
+// A Database Search
 
+const HEROES = [
+    { id: 1, name: 'Captain America', squad: 'Avengers' },
+    { id: 2, name: 'Iron Man', squad: 'Avengers' },
+    { id: 3, name: 'Spiderman', squad: 'Avengers' },
+    { id: 4, name: 'Superman', squad: 'Justice League' },
+    { id: 5, name: 'Wonder Woman', squad: 'Justice League' },
+    { id: 6, name: 'Aquaman', squad: 'Justice League' },
+    { id: 7, name: 'Hulk', squad: 'Avengers' },
+  ];
+  //findOne() takes two arguments, arr,query
+  // first match result should be returned even if multiple match. 
+  function findOne(arr,query){
+      // obstract keys out of HEROES
+      let queryKey = Object.keys(query);
+      // if there is only 1 key, return its match, if not return null
+      if (queryKey.length===1){
+          if(arr.find( hero => hero[queryKey]===query[queryKey])){
+              return arr.find( hero => hero[queryKey]===query[queryKey])
+          } else {
+              return null;
+          }
+      // else if there is more than 1 key, match them all and return the right
+      // query item, if no match, return null    
+      } else if (queryKey.length===2){
+          if(arr.find( hero => hero[(queryKey[0])]===query[(queryKey[0])]
+          && hero[(queryKey[1])]===query[(queryKey[1])])){
+              return arr.find( hero => hero[(queryKey[0])]===query[(queryKey[0])]
+          && hero[(queryKey[1])]===query[(queryKey[1])])
+          }else{return null};
+      }
+  }
+  
+  
+  // find the first match, if not return null
+  
+  console.log(findOne(HEROES, { id: 1 }));
+  // => { id: 1, name: 'Captain America', squad: 'Avengers' }
+  
+  console.log(findOne(HEROES, { id: 10 }));
+  // => null
+  
+  console.log(findOne(HEROES, { id: 2, name: 'Aquaman' }));
+  // => null
+  
+  console.log(findOne(HEROES, { id: 5, squad: 'Justice League' }));
+  // => { id: 5, name: 'Wonder Woman', squad: 'Justice League' }
+  
+  console.log(findOne(HEROES, { squad: 'Justice League' }));
+  // => { id: 4, name: 'Superman', squad: 'Justice League' }
 
