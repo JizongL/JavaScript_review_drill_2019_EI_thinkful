@@ -124,7 +124,7 @@ let message = 'craft block argon meter bells brown croon droop'
 
 console.log(decode(message,cipher));
 
-// Factory Functions with LOTR
+// Factory Function Drill
 function createCharacter(name,nickname,race,origin,attack,defense){
 	return {
 	name: name,
@@ -132,10 +132,12 @@ function createCharacter(name,nickname,race,origin,attack,defense){
 	race: race,
 	origin: origin,
 	attack: attack,
-	defense: defense,
+    defense: defense,
+    // describe method
 	describe: function(){
 		console.log(`${this.name} is a ${this.race} from ${this.origin}`);
-	},
+    },
+    // evaluateFight method
 	evaluateFight: function(character){
 		return `Your opponent takes ${character.attack-character.defense} damage and you receive ${this.attack-this.defense} damage`
 	}
@@ -152,9 +154,16 @@ characters.push(createCharacter('Aragorn son of Arathorn','aragorn','Man','Dunne
 
 characters.push(createCharacter('Legolas','legolas','Elf','Woodland Realm',8,5));
 
-console.log(characters[1].evaluateFight(characters[0]));
-console.log(characters)
+console.log("\nCompare it with another Character\n",characters[1].evaluateFight(characters[0]));
+
+console.log("\nLog out all characters in array\n",characters)
 
 // Using .find() character nicknamed aragorn and call his describe method.
 characters.find(character => character.nickname==='aragorn').describe();
+// filter out characters that are Hobbit
+console.log("\nCharacters that are Hobbit\n",characters.filter
+(character=>character.race==='Hobbit'))
+
+console.log("\nCharacters that have attack value above 5\n",characters.filter
+(character=>character.attack>5))
 
