@@ -125,45 +125,49 @@ let message = 'craft block argon meter bells brown croon droop'
 console.log(decode(message,cipher));
 
 // Factory Function Drill
-function createCharacter(name,nickname,race,origin,attack,defense){
+function createCharacter(name,nickname,race,origin,attack,defense,weapon){
 	return {
 	name: name,
 	nickname:nickname,
 	race: race,
 	origin: origin,
 	attack: attack,
-    defense: defense,
-    // describe method
+	defense: defense,
+	weapon:weapon,
+	// added weapon in description
 	describe: function(){
-		console.log(`${this.name} is a ${this.race} from ${this.origin}`);
-    },
-    // evaluateFight method
+		console.log(`\n${this.name} is a ${this.race} of ${this.origin} who uses ${weapon}\n`);
+	},
 	evaluateFight: function(character){
 		return `Your opponent takes ${character.attack-character.defense} damage and you receive ${this.attack-this.defense} damage`
 	}
 
 }}
 
-let characters = [createCharacter('Gandalf the White','gandalf', 'Wizard','Middle Earth',10,6)]
+let characters = [createCharacter('Gandalf the White','gandalf', 'Wizard','Middle Earth',10,6,'the Ring')]
 
-characters.push(createCharacter('Bilbo Baggins','bilbo','Hobbit','The Shire', 2,1));
+characters.push(createCharacter('Bilbo Baggins','bilbo','Hobbit','The Shire', 2,1,"String and Barrow Blade"));
 
-characters.push(createCharacter('Frodo Baggins','frodo','Hobbit','The Shire',3,2));
+characters.push(createCharacter('Frodo Baggins','frodo','Hobbit','The Shire',3,2,"Anduril"));
 
-characters.push(createCharacter('Aragorn son of Arathorn','aragorn','Man','Dunnedain',6,8));
+characters.push(createCharacter('Aragorn son of Arathorn','aragorn','Man','Dunnedain',6,8,"Bow and Arrow"));
 
-characters.push(createCharacter('Legolas','legolas','Elf','Woodland Realm',8,5));
+characters.push(createCharacter('Legolas','legolas','Elf','Woodland Realm',8,5,"Hadhafang"));
 
-console.log("\nCompare it with another Character\n",characters[1].evaluateFight(characters[0]));
+console.log("\nCompare it with another Character:\n",characters[1].evaluateFight(characters[0]));
 
-console.log("\nLog out all characters in array\n",characters)
+console.log("\nLog out all characters in array:\n",characters)
 
 // Using .find() character nicknamed aragorn and call his describe method.
+characters.forEach(character=>character.describe());
+
 characters.find(character => character.nickname==='aragorn').describe();
 // filter out characters that are Hobbit
 console.log("\nCharacters that are Hobbit\n",characters.filter
 (character=>character.race==='Hobbit'))
-
+// filter out characters whose attack level is above 5
 console.log("\nCharacters that have attack value above 5\n",characters.filter
 (character=>character.attack>5))
+
+
 
