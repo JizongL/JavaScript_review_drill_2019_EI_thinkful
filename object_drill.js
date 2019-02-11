@@ -221,3 +221,46 @@ const HEROES = [
   console.log(findOne(HEROES, { squad: 'Justice League' }));
   // => { id: 4, name: 'Superman', squad: 'Justice League' }
 
+// Bonus II: A Database Method
+
+
+
+const Database = {
+    store: {
+      heroes: [
+        { id: 1, name: 'Captain America', squad: 'Avengers' },
+        { id: 2, name: 'Iron Man', squad: 'Avengers' },
+        { id: 3, name: 'Spiderman', squad: 'Avengers' },
+        { id: 4, name: 'Superman', squad: 'Justice League' },
+        { id: 5, name: 'Wonder Woman', squad: 'Justice League' },
+        { id: 6, name: 'Aquaman', squad: 'Justice League' },
+        { id: 7, name: 'Hulk', squad: 'Avengers' },
+      ]
+        },
+        // original arr is removed, and this.store.heroes is used 
+        // within the method
+    findOne:function(query){
+        // obstract keys out of HEROES
+        let queryKey = Object.keys(query);
+        // if there is only 1 key, return its match, if not return null
+        if (queryKey.length===1){
+            if(this.store.heroes.find( hero => hero[queryKey]===query[queryKey])){
+                return this.store.heroes.find( hero => hero[queryKey]===query[queryKey])
+            } else {
+                return null;
+            }
+        // else if there is more than 1 key, match them all and return the right
+        // query item, if no match, return null    
+        } else if (queryKey.length===2){
+            if(this.store.heroes.find( hero => hero[(queryKey[0])]===query[(queryKey[0])]
+            && hero[(queryKey[1])]===query[(queryKey[1])])){
+                return this.store.heroes.find( hero => hero[(queryKey[0])]===query[(queryKey[0])]
+            && hero[(queryKey[1])]===query[(queryKey[1])])
+            }else{return null};
+        }
+    }
+      }
+  
+  
+  console.log(Database.findOne({ id: 2 }));
+  //=> { id: 2, name: 'Iron Man', squad: 'Avengers' }
