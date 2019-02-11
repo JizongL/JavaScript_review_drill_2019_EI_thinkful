@@ -85,10 +85,41 @@ let hrArray = [
     }
 ]
 
-
+// iterate through
 for (person of hrArray){
     // adjust if it is the owner, then report ot nobody
     if(person.title==='Owner')console.log(`Founder\
 	${person.name} doesn't report to anybody`) 
 	else console.log(`${person.title} ${person.name} reports to ${person.boss}.`);
 }
+
+// Cracking the code object version 
+// decode() takes two arguments,message and cipher
+function decode(message,cipher){
+    // turn string into list
+	let decodeList = message.split(' ');
+    // placeholder for decoded string
+    let decoded = '';
+        // iterate through 
+		for( word of decodeList){
+			// console.log(word,word[0],cipher[word[0]]);
+            // if first letter of word is in cipher, concat the respective
+            // letter according to the cipher
+            if (word[0] in cipher)decoded+=word[cipher[word[0]]-1]
+            // if not in the cipher, just return a space
+            else decoded+=" "
+			
+		}	
+	return decoded;
+}
+// cipher object
+let cipher ={
+	a:2,
+	b:3,
+	c:4,
+	d:5
+}
+
+let message = 'craft block argon meter bells brown croon droop'
+
+console.log(decode(message,cipher));
