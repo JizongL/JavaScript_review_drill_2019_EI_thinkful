@@ -36,3 +36,30 @@ let objectB = {
 }
 console.log(objectB.meals[3]);
 
+//Arrays of objects
+// Create 3-5 objects with name and jobTitle
+// sotre them into an array and iterate through them with console.log
+let objectOne = {
+    name:'John',
+    jobTitle:'Teacher'
+};
+
+let objectTwo = {
+    name:'Miller',
+    jobTitle:'Chef'
+};
+let objectThree = {
+    name:'Josh',
+    jobTitle:'Coach'
+};
+let objectFour = {
+    name:'Angel',
+    jobTitle:'Student'
+};
+
+let objectArray = [objectOne,objectTwo,objectThree,objectFour];
+
+for (object of objectArray){
+    console.log(`Name: ${object.name}\nJob title: ${object.jobTitle}`);
+}
+
