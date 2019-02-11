@@ -124,3 +124,37 @@ let message = 'craft block argon meter bells brown croon droop'
 
 console.log(decode(message,cipher));
 
+// Factory Functions with LOTR
+function createCharacter(name,nickname,race,origin,attack,defense){
+	return {
+	name: name,
+	nickname:nickname,
+	race: race,
+	origin: origin,
+	attack: attack,
+	defense: defense,
+	describe: function(){
+		console.log(`${this.name} is a ${this.race} from ${this.origin}`);
+	},
+	evaluateFight: function(character){
+		return `Your opponent takes ${character.attack-character.defense} damage and you receive ${this.attack-this.defense} damage`
+	}
+
+}}
+
+let characters = [createCharacter('Gandalf the White','gandalf', 'Wizard','Middle Earth',10,6)]
+
+characters.push(createCharacter('Bilbo Baggins','bilbo','Hobbit','The Shire', 2,1));
+
+characters.push(createCharacter('Frodo Baggins','frodo','Hobbit','The Shire',3,2));
+
+characters.push(createCharacter('Aragorn son of Arathorn','aragorn','Man','Dunnedain',6,8));
+
+characters.push(createCharacter('Legolas','legolas','Elf','Woodland Realm',8,5));
+
+console.log(characters[1].evaluateFight(characters[0]));
+console.log(characters)
+
+// Using .find() character nicknamed aragorn and call his describe method.
+characters.find(character => character.nickname==='aragorn').describe();
+
