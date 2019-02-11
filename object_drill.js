@@ -16,7 +16,7 @@ console.log(loaf.hydration())
 
 // Iterating over object property
 
-objectA = {
+let objectA = {
     foo:12, 
     bar:30, 
     fum:21, 
@@ -28,3 +28,11 @@ objectA = {
 for(object in objectA){
     console.log(objectA[object])
 }
+
+// Arrays in objects
+let objectB = {
+    meals:['breakfast','second breakfast','elevenses','lunch','afternoon tea','dinner'/
+    'supper']
+}
+console.log(objectB.meals[3]);
+
